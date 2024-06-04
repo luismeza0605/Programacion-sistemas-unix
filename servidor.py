@@ -25,7 +25,7 @@ def receive_file(conn, filename):
             received_bytes += len(chunk)
 
 # Dirección IP y puerto en el que el servidor escucha
-server_ip = "localhost"  # Cambia esto por la dirección IP del servidor
+server_ip = "localhost"  # Escucha en todas las interfaces
 server_port = 6190
 
 # Imprime la dirección IP del servidor
@@ -40,9 +40,10 @@ print("Esperando al cliente...")
 conn, address = server_fd.accept()
 print(f"{address[0]}:{address[1]} conectado.")
 print("Recibiendo archivo...")
-receive_file(conn, "archivo-recibido.txt")  # Cambia el nombre del archivo
+receive_file(conn, "received_file.txt")  # Cambiar nombre del archivo si es necesario
 print("Archivo recibido.")
 
 conn.close()
 server_fd.close()
 print("Conexión cerrada.")
+
